@@ -1,4 +1,6 @@
-export default function Color ({ hex, name }) {
+import React from "react";
+
+export default function Color ({ hex, name }: { hex: string, name: string }) {
   return (
     <div
       className='color-square' style={{ backgroundColor: hex }}
