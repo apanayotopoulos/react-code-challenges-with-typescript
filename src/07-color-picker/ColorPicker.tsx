@@ -1,7 +1,12 @@
-import { useState } from 'react'
-import Color from './Color'
+import React, { useState } from 'react';
+import Color from './Color';
 
-const colors = [{
+type ColorDef = {
+  hex: string,
+  name: string
+}
+
+const colors: ColorDef[] = [{
   hex: '#91A6FF',
   name: 'Cornflower Blue'
 },
@@ -16,16 +21,16 @@ const colors = [{
 {
   hex: '#FF5154',
   name: 'Tart Orange'
-}]
+}];
 
 export default function ColorPicker () {
-  const [backgroundColor, setBackgroundColor] = useState('white')
+  const [backgroundColor, setBackgroundColor] = useState<string>('white');
 
   return (
     <div className='page' style={{ backgroundColor }}>
       {
         colors.map(color => (
-          <Color key={color.hex} hex={color.hex} name={color.name} />
+          <Color key={color.hex} hex={color.hex} name={color.name} setBackgroundColor={setBackgroundColor} />
         ))
       }
     </div>
