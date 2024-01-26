@@ -1,6 +1,7 @@
-import Color from './Color'
+import React from 'react';
+import Color from './Color';
 
-const colors = [{
+const colors: ({ name: string; hex: string })[] = [{
   hex: '#91A6FF',
   name: 'Cornflower Blue'
 },

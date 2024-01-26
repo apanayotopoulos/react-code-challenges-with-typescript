@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
 
 export default function FocusInput() {
-  const focusedInput =  useRef(null)
+  const focusedInput =  useRef<HTMLInputElement>(null);
   useEffect(() => {
-    focusedInput.current.focus()
-  }, [])
+    focusedInput.current?.focus();
+  }, []);
   return (
     <div>
       <label htmlFor='focused-input'>Focus me on page load!</label>

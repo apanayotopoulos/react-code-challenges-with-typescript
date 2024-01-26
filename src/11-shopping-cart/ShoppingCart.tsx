@@ -1,18 +1,23 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 
-const items = [{
-  name: 'apple',
-  price: 0.39
-}, {
-  name: 'banana',
-  price: 0.79
-}, {
-  name: 'cherry tomatoes',
-  price: 3.99
-}]
+type Item = {
+    name: string,
+    price: number
+}
 
-function ShoppingCart () {
-  const cart = [{ name: 'apple', quantity: 3, price: 0.39 }]
+const items: Item[] = [{
+    name: 'apple',
+    price: 0.39
+}, {
+    name: 'banana',
+    price: 0.79
+}, {
+    name: 'cherry tomatoes',
+    price: 3.99
+}];
+
+export default function ShoppingCart () {
+  const cart: (Item & {quantity: number})[] = [{ name: 'apple', quantity: 3, price: 0.39 }];
 
   return (
     <div>
@@ -49,5 +54,3 @@ function ShoppingCart () {
     </div>
   )
 }
-
-export default ShoppingCart
