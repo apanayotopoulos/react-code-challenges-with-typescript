@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function DogPics () {
   // API: https://dog.ceo/dog-api/
   return (

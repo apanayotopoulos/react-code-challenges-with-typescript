@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import React from "react";
+import { useState } from 'react';
 
 export default function DarkMode () {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState<boolean>(false)
 
   return (
     <div className={`page ${darkMode && 'dark-mode'}`}>
