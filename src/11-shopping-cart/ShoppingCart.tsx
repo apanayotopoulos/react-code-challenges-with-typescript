@@ -1,46 +1,53 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
 
-const items = [{
-  name: 'apple',
-  price: 0.39
+type Item = {
+    name: string,
+    price: number
+}
+
+type CartItem = Item & {quantity: number};
+
+const items: Item[] = [{
+    name: 'apple',
+    price: 0.39
 }, {
-  name: 'banana',
-  price: 0.79
+    name: 'banana',
+    price: 0.79
 }, {
-  name: 'cherry tomatoes',
-  price: 3.99
-}]
+    name: 'cherry tomatoes',
+    price: 3.99
+}];
 
-function ShoppingCart () {
-  const [cart, setCart] = useState([])
+export default function ShoppingCart () {
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-  const addToCart = (item) => {
-    const cartCopy = [...cart]
-    const itemInCart = cartCopy.find(i => item.name === i.name)
+  const addToCart = (item:Item) => {
+    const cartCopy = [...cart];
+    const itemInCart = cartCopy.find(i => item.name === i.name);
     if (itemInCart) {
-      itemInCart.quantity += 1
-      setCart(cartCopy)
+      itemInCart.quantity += 1;
+      setCart(cartCopy);
     } else {
-      setCart(prevCart => [...prevCart, { ...item, quantity: 1 }])
+      setCart(prevCart => [...prevCart, { ...item, quantity: 1 }]);
     }
   }
 
-  const increase = (name) => {
+  const increase = (name:string) => {
     const cartCopy = [...cart]
-    const item = cartCopy.find(i => i.name === name)
-    item.quantity += 1
-    setCart(cartCopy)
+    const item = cartCopy.find(i => i.name === name);
+    item!.quantity += 1;
+    setCart(cartCopy);
   }
 
-  const decrease = (name) => {
+  const decrease = (name:string) => {
     let cartCopy = [...cart]
-    const item = cartCopy.find(i => i.name === name)
-    if (item.quantity > 1) {
-      item.quantity -= 1
+    const item = cartCopy.find(i => i.name === name);
+    if (item && item.quantity > 1) {
+      item.quantity -= 1;
     } else {
-      cartCopy = cartCopy.filter(i => i.name !== name)
+      cartCopy = cartCopy.filter(i => i.name !== name);
     }
-    setCart(cartCopy)
+    setCart(cartCopy);
   }
 
   return (
@@ -80,5 +87,3 @@ function ShoppingCart () {
     </div>
   )
 }
-
-export default ShoppingCart
