@@ -1,14 +1,14 @@
-import { useState } from 'react'
+import React, { useState, FormEvent } from 'react';
 
 export default function FormValidator () {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [passwordConfirm, setPasswordConfirm] = useState<string>('')
 
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState<string>('')
 
-  const findErrors = () => {
-    const errors = []
+  const findErrors = (): string[] => {
+    const errors: string[] = []
     if (!email || !password || !passwordConfirm) errors.push('All fields must be filled in')
     if ([...email].filter(i => i === '@').length !== 1) {
       errors.push('An email must have exactly one @ sign')
@@ -19,10 +19,10 @@ export default function FormValidator () {
     return errors
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
 
-    const errors = findErrors()
+    const errors: string[] = findErrors()
     setMessage(errors.length ? errors.join(', ') : 'User created!')
   }
 

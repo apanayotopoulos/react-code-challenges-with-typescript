@@ -1,9 +1,15 @@
-const initialState = {}
+import React from 'react';
 
-function reducer (state, action) {}
+type CalculatorState = {}
+
+const initialState: CalculatorState = {}
+
+type CalculatorAction = {}
+
+function reducer (state: CalculatorState, action: CalculatorAction) {}
 
 export default function SimpleCalculator () {
-  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <div>
