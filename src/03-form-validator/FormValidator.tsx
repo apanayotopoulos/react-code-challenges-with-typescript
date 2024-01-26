@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import React from 'react';
+import { useState } from 'react';
 
 export default function FormValidator () {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [passwordConfirm, setPasswordConfirm] = useState('')
+  const [email, setEmail] = useState<string>('')
+  const [password, setPassword] = useState<string>('')
+  const [passwordConfirm, setPasswordConfirm] = useState<string>('')
 
   return (
     <form>
