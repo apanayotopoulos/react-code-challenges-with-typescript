@@ -1,4 +1,6 @@
-export default function Color ({ hex, name, setBackgroundColor }) {
+import React from "react";
+
+export default function Color ({ hex, name, setBackgroundColor }: { hex: string, name: string, setBackgroundColor: (hex: string) => void }) {
   return (
     <button
       className='color-square'

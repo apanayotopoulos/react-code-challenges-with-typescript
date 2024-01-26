@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import Color from './Color'
+import React, { useState } from 'react';
+import Color from './Color';
 
-const colors = [{
+const colors: ({ name: string; hex: string })[] = [{
   hex: '#91A6FF',
   name: 'Cornflower Blue'
 },
@@ -16,10 +16,10 @@ const colors = [{
 {
   hex: '#FF5154',
   name: 'Tart Orange'
-}]
+}];
 
 export default function ColorPicker () {
-  const [backgroundColor, setBackgroundColor] = useState('white')
+  const [backgroundColor, setBackgroundColor] = useState<string>('white');
 
   return (
     <div className='page' style={{ backgroundColor }}>
